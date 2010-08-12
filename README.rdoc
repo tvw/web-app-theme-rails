@@ -1,17 +1,73 @@
 = web-app-theme-rails
 
-Description goes here.
+This Gem brings the cool {Web App Theme}[http://github.com/pilu/web-app-theme]
+by {Andrea Franz}[http://gravityblast.com] to Rails 3 in the form of Rails 3 generators.
+
+== Installation
+
+Put the following in your Gemfile:
+
+  gem 'web-app-theme-rails'
+
+Run bundler to install the gem:
+
+  bundle install
+
+or do
+
+  gem install web-app-theme-rails
+
+Add the following to config/application.rb:
+
+  config.generators do |g|
+    g.template_engine "web_app_theme"
+  end
+
+Now you need to generate a app/views/layouts/application.html.erb:
+
+  rails generate web_app_theme:layout
+
+See the options on how to choose the theme you want.
+
+BTW: If you are using haml, a haml file is generated and the original
+application.html.erb will not be replaced and therefore still be the default
+layout. You need to remove it to make the haml-file take its place.
+
+== Usage/Examples
+
+Just use rails scaffolding and have a look at the options:
+
+  rails generate scaffold Address name:string town:string
+
+== Haml
+
+Haml support is included. If you have Haml included in your apps Gemfile,
+web-app-theme-rails produces haml-templates per default.
+
+== Web App Theme
+
+The views and layout were taken from {Web App Theme}[http://github.com/pilu/web-app-theme]
+with only very few modifications.
+
+== Credits
+
+* Web App Theme: Andrea Franz http://github.com/pilu/web-app-theme
+* Icons: FAMFAMFAM Silk icons http://www.famfamfam.com/lab/icons/silk/
+
+== Author
+
+Thomas Volkmar Worm, \<mailto:tvw@s4r.de>
 
 == Note on Patches/Pull Requests
- 
-* Fork the project.
+
+* Fork the project: http://github.com/tvw/web-app-theme-rails
 * Make your feature addition or bug fix.
-* Add tests for it. This is important so I don't break it in a
-  future version unintentionally.
 * Commit, do not mess with rakefile, version, or history.
   (if you want to have your own version, that is fine but bump version in a commit by itself I can ignore when I pull)
 * Send me a pull request. Bonus points for topic branches.
 
 == Copyright
 
-Copyright (c) 2010 Thomas Volkmar Worm. See LICENSE for details.
+Copyright (c) 2010 Thomas Volkmar Worm, Andrea Franz
+
+See LICENSE for details.

@@ -21,9 +21,53 @@ module WebAppTheme
 
       class_option :type, :type => :string, :default => (haml? ? 'haml' : 'erb'), :desc => "Choose the type of templates you want to generate."
 
+      protected
+      
+      # File extension: 'haml' or 'erb'.
+      def extension
+        haml? ? 'haml' : 'erb'
+      end
+
       # Returns true, if Haml is in use.
       def haml?
         self.class.haml?
+      end
+
+
+
+      # for web_app_theme templates
+      def controller_routing_path
+        plural_name
+      end
+
+      # for web_app_theme templates
+      def singular_controller_routing_path
+        singular_name
+      end
+
+      # for web_app_theme templates
+      def resource_name
+        singular_name
+      end
+
+      # for web_app_theme templates
+      def plural_resource_name
+        plural_name
+      end
+
+      # for web_app_theme templates
+      def model_name
+        singular_name
+      end
+
+      # for web_app_theme templates
+      def plural_model_name
+        plural_name
+      end
+
+      # for web_app_theme templates
+      def columns
+        attributes
       end
 
     end

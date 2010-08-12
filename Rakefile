@@ -60,7 +60,8 @@ task :testapp => "testapp:default"
 namespace :testapp do
   desc "Generates and installs the gem"
   task :gem => :build do
-    sh "gem install pkg/web-app-theme-rails-0.0.0.gem --no-ri --no-rdoc"
+    version = File.exist?('VERSION') ? File.read('VERSION').gsub(/\s*/,'') : ""
+    sh "gem install pkg/web-app-theme-rails-#{version}.gem --no-ri --no-rdoc"
   end
 
   task :railsapp do
@@ -96,7 +97,8 @@ namespace :testapp do
   task :scaffold do
     Dir.chdir("testapp") do
       sh "rails generate scaffold --help"
-      sh "rails generate scaffold Address name:string town:string --layout=standard"
+      sh "rails generate web_app_theme:layout"
+      sh "rails generate scaffold Address name:string town:string"
       sh "rake db:migrate"
       sh "rails server"
     end

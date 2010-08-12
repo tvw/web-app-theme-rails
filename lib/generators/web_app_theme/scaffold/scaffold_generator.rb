@@ -11,41 +11,6 @@ module WebAppTheme
       class_option :layout,    :type => :string, :desc => "Generates a layout for the controller. Choose between 'standard' and 'sign'."
       class_option :singleton, :type => :boolean, :desc => "Supply to skip index view"
 
-      # for web_app_theme templates
-      def controller_routing_path
-        plural_name
-      end
-
-      # for web_app_theme templates
-      def singular_controller_routing_path
-        singular_name
-      end
-
-      # for web_app_theme templates
-      def resource_name
-        singular_name
-      end
-
-      # for web_app_theme templates
-      def plural_resource_name
-        plural_name
-      end
-
-      # for web_app_theme templates
-      def model_name
-        singular_name
-      end
-
-      # for web_app_theme templates
-      def plural_model_name
-        plural_name
-      end
-
-      # for web_app_theme templates
-      def columns
-        attributes
-      end
-
 
       def create_root_folder
         empty_directory File.join("app/views", controller_file_path)
@@ -83,10 +48,6 @@ module WebAppTheme
 
       protected
       
-      def extension
-        haml? ? 'haml' : 'erb'
-      end
-
       def copy_view(view, inview = view)
         infile = "view_#{inview}.html.#{extension}"
         outfile = "#{view}.html.#{extension}"

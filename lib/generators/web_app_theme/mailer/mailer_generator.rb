@@ -1,8 +1,8 @@
-require 'web_app_theme/generators/base.rb'
+require 'generators/web_app_theme'
 
 module WebAppTheme
   module Generators
-    class MailerGenerator < WebAppTheme::Generators::Base
+    class MailerGenerator < Base
       argument :actions, :type => :array, :default => [], :banner => "method method"
 
       def create_view_folder

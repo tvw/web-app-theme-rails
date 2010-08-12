@@ -1,8 +1,8 @@
-require 'web_app_theme/generators/base.rb'
+require 'generators/web_app_theme'
 
 module WebAppTheme
   module Generators
-    class ControllerGenerator < WebAppTheme::Generators::Base
+    class ControllerGenerator < Base
       argument :actions, :type => :array, :default => [], :banner => "action action"
 
       def create_view_files

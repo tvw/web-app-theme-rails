@@ -4,6 +4,8 @@
     %meta{'http-equiv' => 'Content-Type', :content => 'text/html; charset=utf-8'}
     %title <%= options[:app_name] %>
     = stylesheet_link_tag "web_app_theme", "web_app_theme_override", "themes/<%= options[:theme] %>/style", :cache => true
+    = javascript_include_tag :defaults
+    = csrf_meta_tag
   %body
     #container
       #header
@@ -25,6 +27,6 @@
           = yield
           #footer
             .block
-              <p>Copyright &copy; #{ Time.now.year } #{ options[:app_name] }.</p>
+              <p>Copyright &copy; #{ Time.now.year } <%= options[:app_name] %>.</p>
         #sidebar
           = yield :sidebar
