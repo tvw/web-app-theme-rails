@@ -20,6 +20,8 @@ Gem::Specification.new do |s|
     "lib/generators/web_app_theme.rb",
      "lib/generators/web_app_theme/controller/controller_generator.rb",
      "lib/generators/web_app_theme/controller/templates/view.html.haml",
+     "lib/generators/web_app_theme/layout/USAGE",
+     "lib/generators/web_app_theme/layout/layout_generator.rb",
      "lib/generators/web_app_theme/layout/templates/view_layout_administration.html.erb",
      "lib/generators/web_app_theme/layout/templates/view_layout_administration.html.haml",
      "lib/generators/web_app_theme/layout/templates/view_layout_sign.html.erb",
