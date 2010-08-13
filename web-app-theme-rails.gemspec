@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Thomas Volkmar Worm"]
-  s.date = %q{2010-08-12}
+  s.date = %q{2010-08-13}
   s.description = %q{A template generator for Rails 3 providing the nice templates from WebAppTheme with support for ERB and Haml}
   s.email = %q{tvw@s4r.de}
   s.extra_rdoc_files = [
@@ -19,6 +19,7 @@ Gem::Specification.new do |s|
   s.files = [
     "lib/generators/web_app_theme.rb",
      "lib/generators/web_app_theme/controller/controller_generator.rb",
+     "lib/generators/web_app_theme/controller/templates/view.html.erb",
      "lib/generators/web_app_theme/controller/templates/view.html.haml",
      "lib/generators/web_app_theme/layout/USAGE",
      "lib/generators/web_app_theme/layout/layout_generator.rb",
@@ -51,26 +52,34 @@ Gem::Specification.new do |s|
      "lib/generators/web_app_theme/layout/templates/view_layout_sign.html.haml",
      "lib/generators/web_app_theme/layout/templates/web_app_theme_override.css",
      "lib/generators/web_app_theme/mailer/mailer_generator.rb",
+     "lib/generators/web_app_theme/mailer/templates/view.text.erb",
      "lib/generators/web_app_theme/mailer/templates/view.text.haml",
      "lib/generators/web_app_theme/scaffold/scaffold_generator.rb",
-     "lib/generators/web_app_theme/scaffold/templates/view_edit.html.erb",
-     "lib/generators/web_app_theme/scaffold/templates/view_edit.html.haml",
-     "lib/generators/web_app_theme/scaffold/templates/view_form.html.erb",
-     "lib/generators/web_app_theme/scaffold/templates/view_form.html.haml",
-     "lib/generators/web_app_theme/scaffold/templates/view_new.html.erb",
-     "lib/generators/web_app_theme/scaffold/templates/view_new.html.haml",
-     "lib/generators/web_app_theme/scaffold/templates/view_show.html.erb",
-     "lib/generators/web_app_theme/scaffold/templates/view_show.html.haml",
-     "lib/generators/web_app_theme/scaffold/templates/view_sidebar.html.erb",
-     "lib/generators/web_app_theme/scaffold/templates/view_sidebar.html.haml",
-     "lib/generators/web_app_theme/scaffold/templates/view_signin.html.erb",
-     "lib/generators/web_app_theme/scaffold/templates/view_signin.html.haml",
-     "lib/generators/web_app_theme/scaffold/templates/view_signup.html.erb",
-     "lib/generators/web_app_theme/scaffold/templates/view_signup.html.haml",
-     "lib/generators/web_app_theme/scaffold/templates/view_tables.html.erb",
-     "lib/generators/web_app_theme/scaffold/templates/view_tables.html.haml",
-     "lib/generators/web_app_theme/scaffold/templates/view_text.html.erb",
-     "lib/generators/web_app_theme/scaffold/templates/view_text.html.haml",
+     "lib/generators/web_app_theme/scaffold/templates/rails/#scaffold_generator.rb#",
+     "lib/generators/web_app_theme/scaffold/templates/rails/_form.html.erb",
+     "lib/generators/web_app_theme/scaffold/templates/rails/edit.html.erb",
+     "lib/generators/web_app_theme/scaffold/templates/rails/index.html.erb",
+     "lib/generators/web_app_theme/scaffold/templates/rails/new.html.erb",
+     "lib/generators/web_app_theme/scaffold/templates/rails/scaffold_generator.rb",
+     "lib/generators/web_app_theme/scaffold/templates/rails/show.html.erb",
+     "lib/generators/web_app_theme/scaffold/templates/web_app_theme/view_edit.html.erb",
+     "lib/generators/web_app_theme/scaffold/templates/web_app_theme/view_edit.html.haml",
+     "lib/generators/web_app_theme/scaffold/templates/web_app_theme/view_form.html.erb",
+     "lib/generators/web_app_theme/scaffold/templates/web_app_theme/view_form.html.haml",
+     "lib/generators/web_app_theme/scaffold/templates/web_app_theme/view_new.html.erb",
+     "lib/generators/web_app_theme/scaffold/templates/web_app_theme/view_new.html.haml",
+     "lib/generators/web_app_theme/scaffold/templates/web_app_theme/view_show.html.erb",
+     "lib/generators/web_app_theme/scaffold/templates/web_app_theme/view_show.html.haml",
+     "lib/generators/web_app_theme/scaffold/templates/web_app_theme/view_sidebar.html.erb",
+     "lib/generators/web_app_theme/scaffold/templates/web_app_theme/view_sidebar.html.haml",
+     "lib/generators/web_app_theme/scaffold/templates/web_app_theme/view_signin.html.erb",
+     "lib/generators/web_app_theme/scaffold/templates/web_app_theme/view_signin.html.haml",
+     "lib/generators/web_app_theme/scaffold/templates/web_app_theme/view_signup.html.erb",
+     "lib/generators/web_app_theme/scaffold/templates/web_app_theme/view_signup.html.haml",
+     "lib/generators/web_app_theme/scaffold/templates/web_app_theme/view_tables.html.erb",
+     "lib/generators/web_app_theme/scaffold/templates/web_app_theme/view_tables.html.haml",
+     "lib/generators/web_app_theme/scaffold/templates/web_app_theme/view_text.html.erb",
+     "lib/generators/web_app_theme/scaffold/templates/web_app_theme/view_text.html.haml",
      "lib/web-app-theme-rails.rb"
   ]
   s.homepage = %q{http://github.com/tvw/web-app-theme-rails}
