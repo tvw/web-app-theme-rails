@@ -44,9 +44,9 @@ module WebAppTheme
       #
       # ==== Examples
       #
-      #   create_sass "README", "doc/README"
+      #   create_sass "style.css", "sass/style.sass"
       #
-      #   create_sass "doc/README"
+      #   create_sass "style.css"
       #
       def create_sass(source, *args, &block)
         require 'sass/css'

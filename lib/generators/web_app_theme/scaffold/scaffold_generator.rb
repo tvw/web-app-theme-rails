@@ -9,9 +9,9 @@ module WebAppTheme
       argument :attributes, :type => :array, :default => [], :banner => "field:type field:type"
 
       class_option :style,     :type => :string, :default => 'web_app_theme', :desc => "'web_app_theme'-views or the normal 'rails'-views"
-      class_option :layout,    :type => :string, :desc => "Generates a layout for the controller. Choose between 'standard' and 'sign'."
       class_option :singleton, :type => :boolean, :desc => "Supply to skip index view"
 
+      hook_for :layout, :as => 'web_app_theme', :type => :boolean, :desc => "Generates a web_app_theme:layout for the controller with the same name as the controller."
 
       def create_root_folder
         empty_directory File.join("app/views", controller_file_path)
@@ -41,15 +41,6 @@ module WebAppTheme
       def copy_sidebar
         return unless options[:style] == "web_app_theme"
         copy_view :_sidebar, :sidebar
-      end
-
-      def copy_layout_file
-        return unless options[:style] == "web_app_theme"
-        return unless options[:layout]
-
-        layout_name = (options[:layout] == 'standard') ? 'administration' : options[:layout]
-
-        template File.join("..", "..", "layout", "templates", "view_layout_#{layout_name}.html.#{extension}"), File.join("app/views/layouts", controller_class_path, "#{controller_file_name}.html.#{extension}")
       end
 
       protected

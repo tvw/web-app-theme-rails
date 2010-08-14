@@ -61,7 +61,7 @@ namespace :testapp do
   desc "Generates and installs the gem"
   task :gem => :build do
     version = File.exist?('VERSION') ? File.read('VERSION').gsub(/\s*/,'') : ""
-    sh "gem install pkg/web-app-theme-rails-#{version}.gem --no-ri --no-rdoc"
+    sh "gem install pkg/web-app-theme-rails-#{version}.gem --no-ri"
   end
 
   task :railsapp do
@@ -76,7 +76,9 @@ namespace :testapp do
         fh.puts "source 'http://rubygems.org'"
         fh.puts "gem 'rails', '3.0.0.rc'"
         fh.puts "gem 'sqlite3-ruby', :require => 'sqlite3'"
-        fh.puts "gem 'web-app-theme-rails'"
+        fh.puts "group :development do"
+        fh.puts "  gem 'web-app-theme-rails'"
+        fh.puts "end"
       end
     end
   end
@@ -89,7 +91,9 @@ namespace :testapp do
         fh.puts "gem 'rails', '3.0.0.rc'"
         fh.puts "gem 'sqlite3-ruby', :require => 'sqlite3'"
         fh.puts "gem 'haml'"
-        fh.puts "gem 'web-app-theme-rails'"
+        fh.puts "group :development do"
+        fh.puts "  gem 'web-app-theme-rails'"
+        fh.puts "end"
       end
     end
   end

@@ -33,5 +33,4 @@ Example:
         stylesheets/themes/default/style.css
         or
         stylesheets/sass/base.sass
-        stylesheets/themes/default/sass/style.sass
-
+        stylesheets/sass/themes/default/style.sass

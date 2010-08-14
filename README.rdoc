@@ -1,13 +1,16 @@
 = web-app-theme-rails
 
 This Gem brings the cool {Web App Theme}[http://github.com/pilu/web-app-theme]
-by {Andrea Franz}[http://gravityblast.com] to Rails 3 in the form of Rails 3 generators.
+by {Andrea Franz}[http://gravityblast.com] to Rails 3 in the form of view
+generators, plus support for generating Haml-views, when Haml is in use.
 
 == Installation
 
 Put the following in your Gemfile:
 
-  gem 'web-app-theme-rails'
+  group :development do
+    gem 'web-app-theme-rails'
+  end
 
 Run bundler to install the gem:
 
@@ -29,9 +32,9 @@ Now you need to generate a app/views/layouts/application.html.erb:
 
 See the options on how to choose the theme you want.
 
-BTW: If you are using haml, a haml file is generated and the original
+BTW: If you are using Haml, a Haml-file is generated and the original
 application.html.erb will not be replaced and therefore still be the default
-layout. You need to remove it to make the haml-file take its place.
+layout. You need to remove or rename it to make the Haml-file take its place.
 
 == Usage/Examples
 
@@ -39,10 +42,20 @@ Just use rails scaffolding and have a look at the options:
 
   rails generate scaffold Address name:string town:string
 
-== Haml
+In the moment of this writing, generating a controller generates the normal
+rails views:
 
-Haml support is included. If you have Haml included in your apps Gemfile,
-web-app-theme-rails produces haml-templates per default.
+  rails generate controller Friend index
+
+generates the normal rails view for index.
+
+== Haml/Sass
+{Haml}[http://haml-lang.com/] and {Sass}[http://sass-lang.com/]
+support is included. If you have Haml included in your apps Gemfile,
+web-app-theme-rails produces haml-templates and sass-stylesheets per default.
+
+When you generate a normal controller, the normal rails views are generated
+in Haml-style instead of ERB-style.
 
 == Web App Theme
 
