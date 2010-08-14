@@ -11,12 +11,12 @@ module WebAppTheme
 
       class_option :app_name,    :type => :string, :default => 'YourAppName', :desc => "The application name."
 
-      class_option :images,      :type => :boolean, :default => 'true', :desc => "Copies the needed images to public/images."
-      class_option :js,          :type => :boolean, :default => 'true', :desc => "Copies the javascript helpers to public/javascripts."
-      class_option :jquery,      :type => :boolean, :default => 'true', :desc => "Copies jquery-1.3.min.js to public/javascripts."
-      class_option :locales,     :type => :boolean, :default => 'true', :desc => "Copies the locale file to config/locales."
-      class_option :stylesheets, :type => :boolean, :default => 'true', :desc => "Copies the stylesheets to public/stylesheets."
-      class_option :sass,        :type => :boolean, :default => haml?.to_s,  :desc => "Creates sass- instead of css-stylesheets."
+      class_option :images,      :type => :boolean, :default => true, :desc => "Copies the needed images to public/images."
+      class_option :js,          :type => :boolean, :default => true, :desc => "Copies the javascript helpers to public/javascripts."
+      class_option :jquery,      :type => :boolean, :default => true, :desc => "Copies jquery-1.3.min.js to public/javascripts."
+      class_option :locales,     :type => :boolean, :default => true, :desc => "Copies the locale file to config/locales."
+      class_option :stylesheets, :type => :boolean, :default => true, :desc => "Copies the stylesheets to public/stylesheets."
+      class_option :sass,        :type => :boolean, :default => haml?, :desc => "Creates sass- instead of css-stylesheets."
 
 
       def copy_layout_file
@@ -59,7 +59,7 @@ module WebAppTheme
       end
 
       def copy_stylesheets
-        return unless options[:js]
+        return unless options[:stylesheets]
         if options[:sass]
           create_sass 'stylesheets/base.css', File.join('public', 'stylesheets', 'sass', 'web_app_theme.sass')
           create_sass "stylesheets/themes/#{options[:theme]}/style.css", File.join('public', 'stylesheets', 'sass', 'themes', options[:theme], 'style.sass')
