@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Thomas Volkmar Worm"]
-  s.date = %q{2010-08-13}
+  s.date = %q{2010-08-14}
   s.description = %q{A template generator for Rails 3 providing the nice templates from WebAppTheme with support for ERB and Haml}
   s.email = %q{tvw@s4r.de}
   s.extra_rdoc_files = [
@@ -55,12 +55,10 @@ Gem::Specification.new do |s|
      "lib/generators/web_app_theme/mailer/templates/view.text.erb",
      "lib/generators/web_app_theme/mailer/templates/view.text.haml",
      "lib/generators/web_app_theme/scaffold/scaffold_generator.rb",
-     "lib/generators/web_app_theme/scaffold/templates/rails/#scaffold_generator.rb#",
      "lib/generators/web_app_theme/scaffold/templates/rails/_form.html.erb",
      "lib/generators/web_app_theme/scaffold/templates/rails/edit.html.erb",
      "lib/generators/web_app_theme/scaffold/templates/rails/index.html.erb",
      "lib/generators/web_app_theme/scaffold/templates/rails/new.html.erb",
-     "lib/generators/web_app_theme/scaffold/templates/rails/scaffold_generator.rb",
      "lib/generators/web_app_theme/scaffold/templates/rails/show.html.erb",
      "lib/generators/web_app_theme/scaffold/templates/web_app_theme/view_edit.html.erb",
      "lib/generators/web_app_theme/scaffold/templates/web_app_theme/view_edit.html.haml",

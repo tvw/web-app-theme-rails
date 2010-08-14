@@ -3,7 +3,7 @@ Description:
     the stylesheets and javascripts to public and the locales to config/locales.
 
 Available templates:
-    standard: the standard web-app-theme layout
+    administration: the standard web-app-theme layout
     sign: for sign-in-pages
 
 Available themes:
@@ -31,3 +31,7 @@ Example:
 
         stylesheets/base.css
         stylesheets/themes/default/style.css
+        or
+        stylesheets/sass/base.sass
+        stylesheets/themes/default/sass/style.sass
+

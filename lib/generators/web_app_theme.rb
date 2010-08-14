@@ -33,6 +33,36 @@ module WebAppTheme
         self.class.haml?
       end
 
+      # Gets a CSS file at the relative source, converts it to Sass and makes a copy
+      # at the relative destination. If the destination is not given it's assumed
+      # to be equal to the source replacing .css by .sass in the filename.
+      #
+      # ==== Parameters
+      # source<String>:: the relative path to the source root.
+      # destination<String>:: the relative path to the destination root.
+      # config<Hash>:: give :verbose => false to not log the status.
+      #
+      # ==== Examples
+      #
+      #   create_sass "README", "doc/README"
+      #
+      #   create_sass "doc/README"
+      #
+      def create_sass(source, *args, &block)
+        require 'sass/css'
+
+        config = args.last.is_a?(Hash) ? args.pop : {}
+        destination = args.first || source.gsub(/\.css/,'.sass')
+ 
+        source  = File.expand_path(find_in_source_paths(source.to_s))
+        source_file = IO.read(source)
+ 
+        create_file destination, nil, config do
+          content = Sass::CSS.new(source_file).render(:sass)
+          content = block.call(content) if block
+          content
+        end
+      end
 
 
       # for web_app_theme templates

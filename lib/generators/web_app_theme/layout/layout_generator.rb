@@ -6,10 +6,10 @@ module WebAppTheme
 
       argument :name, :type => :string, :default => 'application', :banner => "LAYOUTNAME"
 
-      class_option :template,    :type => :string, :default => 'standard', :desc => "One of the two templates: 'standard' or 'sign'."
+      class_option :template,    :type => :string, :default => 'administration', :desc => "One of the two templates: 'administration' or 'sign'."
       class_option :theme,       :type => :string, :default => 'default', :desc => "Uses the given theme."
 
-      class_option :app_name,    :type => :string, :default => 'AppName', :desc => "The application name."
+      class_option :app_name,    :type => :string, :default => 'YourAppName', :desc => "The application name."
 
       class_option :images,      :type => :boolean, :default => 'true', :desc => "Copies the needed images to public/images."
       class_option :js,          :type => :boolean, :default => 'true', :desc => "Copies the javascript helpers to public/javascripts."
@@ -20,8 +20,7 @@ module WebAppTheme
 
 
       def copy_layout_file
-        layout_name = (options[:template] == 'standard') ? 'administration' : options[:template]
-        template "view_layout_#{layout_name}.html.#{extension}", File.join("app/views/layouts", "#{name}.html.#{extension}")
+        template "view_layout_#{options[:template]}.html.#{extension}", File.join("app/views/layouts", "#{name}.html.#{extension}")
       end
 
       def copy_locales
@@ -61,13 +60,15 @@ module WebAppTheme
 
       def copy_stylesheets
         return unless options[:js]
-        copy_file "stylesheets/base.css", File.join('public', "stylesheets", "web_app_theme.css")
-
-        ["stylesheets/themes/#{options[:theme]}/style.css"].each do |file|
-          copy_file file, File.join('public', file)
+        if options[:sass]
+          create_sass 'stylesheets/base.css', File.join('public', 'stylesheets', 'sass', 'web_app_theme.sass')
+          create_sass "stylesheets/themes/#{options[:theme]}/style.css", File.join('public', 'stylesheets', 'sass', 'themes', options[:theme], 'style.sass')
+          create_sass 'web_app_theme_override.css', File.join('public', 'stylesheets', 'sass', 'web_app_theme_override.sass')
+        else
+          copy_file 'stylesheets/base.css', File.join('public', 'stylesheets', 'web_app_theme.css')
+          copy_file "stylesheets/themes/#{options[:theme]}/style.css", File.join('public', 'stylesheets', 'themes', options[:theme], 'style.css')
+          copy_file 'web_app_theme_override.css', File.join('public', 'stylesheets', 'web_app_theme_override.css')
         end
-
-        copy_file "web_app_theme_override.css", "public/stylesheets/web_app_theme_override.css"
       end
 
     end
