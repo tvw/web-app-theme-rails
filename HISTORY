@@ -1,0 +1,9 @@
+= History
+
+== 0.1.1 - 04-SEP-2010
+
+BUGFIX: 'rails g controller ...' always generates haml view templates.
+
+== 0.1.0 - 14-AUG-2010
+
+First release.

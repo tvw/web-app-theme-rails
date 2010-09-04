@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{web-app-theme-rails}
-  s.version = "0.0.0"
+  s.version = "0.1.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Thomas Volkmar Worm"]
-  s.date = %q{2010-08-14}
+  s.date = %q{2010-09-04}
   s.description = %q{A template generator for Rails 3 providing the nice templates from WebAppTheme with support for ERB and Haml}
   s.email = %q{tvw@s4r.de}
   s.extra_rdoc_files = [

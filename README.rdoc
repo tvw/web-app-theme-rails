@@ -71,6 +71,10 @@ with only very few modifications.
 
 Thomas Volkmar Worm, \<mailto:tvw@s4r.de>
 
+== Contributors
+
+* Jurgis Jurksta, \<mailto:jurgis@emails.lv>
+
 == Note on Patches/Pull Requests
 
 * Fork the project: http://github.com/tvw/web-app-theme-rails
@@ -83,4 +87,4 @@ Thomas Volkmar Worm, \<mailto:tvw@s4r.de>
 
 Copyright (c) 2010 Thomas Volkmar Worm, Andrea Franz
 
-See LICENSE for details.
+See LICENSE for details and HISTORY for release history
