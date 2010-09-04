@@ -11,9 +11,9 @@ module WebAppTheme
 
         actions.each do |action|
           @action = action
-          @path   = File.join(base_path, "#{action}.html.haml")
-
-          template 'view.html.haml', @path
+          @path   = File.join(base_path, "#{action}.html.#{extension}")
+          
+          template "view.html.#{extension}", @path
         end
       end
     end
